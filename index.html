@@ -3,24 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Психолог Северова Дарья - официальный сайт</title>
+    <meta name="theme-color" content="#f6f1e9" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <title>Психолог в Ставрополе и онлайн — Дарья Северова</title>
     <meta
       name="description"
-      content="Индивидуальные консультации психолога очно в Ставрополе и онлайн. Бережный подход, помощь в кризисных ситуациях. 
-      Стоимость первой встречи — 1000 ₽. Подробнее на сайте."
+      content="Индивидуальные консультации психолога очно в Ставрополе и онлайн. Бережный подход, помощь в кризисных ситуациях. Стоимость первой встречи — 1000 ₽."
     />
     <link rel="canonical" href="https://daryaseverova.github.io/" />
     <meta property="og:url" content="https://daryaseverova.github.io/" />
+    <meta property="og:site_name" content="Дарья Северова — психолог" />
     <meta
       property="og:image"
-      content="https://daryaseverova.github.io/img/portrait-main.png"
+      content="https://daryaseverova.github.io/img/og-image.jpg"
     />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Дарья Северова, психолог. Консультации в Ставрополе и онлайн"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <meta property="og:title" content="Дарья Северова — психолог" />
+    <meta property="og:title" content="Психолог в Ставрополе и онлайн — Дарья Северова" />
     <meta
       property="og:description"
-      content="Индивидуальные консультации психолога очно в Ставрополе и онлайн. Бережный подход, помощь в кризисных ситуациях. 
-      Стоимость первой встречи — 1000 ₽. Подробнее на сайте."
+      content="Индивидуальные консультации психолога очно в Ставрополе и онлайн. Бережный подход, помощь в кризисных ситуациях. Стоимость первой встречи — 1000 ₽."
     />
     <meta property="og:type" content="website" />
     <script type="application/ld+json">
@@ -41,7 +52,7 @@
             "alternateName": "Дарья Погольдина",
             "jobTitle": "Психолог",
             "url": "https://daryaseverova.github.io/",
-            "image": "https://daryaseverova.github.io/img/portrait-main.png",
+            "image": "https://daryaseverova.github.io/img/portrait-main.jpg",
             "email": "mailto:pogoldinad@mail.ru",
             "workLocation": {
               "@type": "Place",
@@ -64,6 +75,52 @@
               "https://vk.ru/dashkaapo",
               "https://t.me/iminterestedin"
             ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://daryaseverova.github.io/#service",
+            "name": "Психолог Дарья Северова",
+            "description": "Индивидуальные консультации психолога, экзистенциальный подход. Очно в Ставрополе и онлайн.",
+            "url": "https://daryaseverova.github.io/",
+            "image": "https://daryaseverova.github.io/img/og-image.jpg",
+            "email": "mailto:pogoldinad@mail.ru",
+            "founder": { "@id": "https://daryaseverova.github.io/#person" },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ставрополь",
+              "addressCountry": "RU"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Ставрополь" },
+              { "@type": "Country", "name": "Россия" }
+            ],
+            "availableLanguage": "ru",
+            "priceRange": "1000–2000 ₽",
+            "sameAs": [
+              "https://t.me/dashkaapo",
+              "https://vk.ru/dashkaapo",
+              "https://t.me/iminterestedin"
+            ],
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "name": "Первая консультация, 70 минут, онлайн",
+                "price": "1000",
+                "priceCurrency": "RUB"
+              },
+              {
+                "@type": "Offer",
+                "name": "Консультация, 70 минут, онлайн",
+                "price": "1600",
+                "priceCurrency": "RUB"
+              },
+              {
+                "@type": "Offer",
+                "name": "Консультация, 70 минут, очно в Ставрополе",
+                "price": "2000",
+                "priceCurrency": "RUB"
+              }
+            ]
           }
         ]
       }
@@ -71,6 +128,27 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link
+      rel="preload"
+      href="css/fonts/Onest-VariableFont_wght.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="css/fonts/CormorantGaramond-VariableFont_wght.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="css/fonts/CormorantGaramond-Italic-VariableFont_wght.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -78,10 +156,15 @@
     <header>
       <div class="wrap">
         <a class="logo" href="#top">Дарья Северова</a>
-        <button class="burger" aria-label="Меню" aria-expanded="false">
+        <button
+          class="burger"
+          aria-label="Меню"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
           ☰
         </button>
-        <nav aria-label="Основная">
+        <nav id="site-nav" aria-label="Основная">
           <a href="#about">Обо мне</a><a href="#approach">Подход</a
           ><a href="#requests">Запросы</a><a href="#price">Стоимость</a
           ><a href="#education">Образование</a><a href="#contacts">Контакты</a
@@ -93,9 +176,11 @@
       <section class="hero">
         <div class="wrap">
           <div>
-            <h1>Дарья Северова</h1>
-            <p class="maiden">(Погольдина)</p>
-            <p class="role">психолог</p>
+            <h1>
+              Дарья Северова
+              <span class="maiden">(Погольдина)</span>
+              <span class="role">психолог</span>
+            </h1>
             <p class="lead">
               Пространство, где можно спокойно исследовать свои чувства,
               отношения, ценности и смыслы — вместе, без готовых ответов.
@@ -106,7 +191,20 @@
             </div>
           </div>
           <div class="arch">
-            <img src="img/portrait-main.png" alt="Дарья Северова, психолог" />
+            <img
+              src="img/portrait-main-660.webp"
+              srcset="
+                img/portrait-main-440.webp  440w,
+                img/portrait-main-660.webp  660w,
+                img/portrait-main-920.webp  920w
+              "
+              sizes="(max-width: 760px) 220px, 460px"
+              width="920"
+              height="1224"
+              fetchpriority="high"
+              decoding="async"
+              alt="Дарья Северова, психолог"
+            />
           </div>
         </div>
       </section>
@@ -119,14 +217,20 @@
           <div class="ph rv">
             <img
               class="big"
-              src="img/portrait-smile.jpg"
+              src="img/portrait-smile.webp"
+              width="960"
+              height="1280"
               alt="Дарья улыбается"
               loading="lazy"
+              decoding="async"
             /><img
               class="small"
-              src="img/portrait-flower.jpg"
+              src="img/portrait-flower.webp"
+              width="480"
+              height="720"
               alt="Дарья рядом с сухими цветами"
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="rv">
@@ -201,125 +305,192 @@
             </p>
             <img
               class="ill"
-              src="img/botanical.png"
+              src="img/botanical.webp"
               alt=""
-              width="800"
-              height="1443"
+              width="680"
+              height="1227"
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="acc rv">
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Тревожность</h3>
-                <em>«Я постоянно тревожусь и не могу расслабиться»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b1"
+                  aria-expanded="false"
+                  aria-controls="acc-p1"
+                >
+                  <span class="t">Тревожность</span>
+                  <em>«Я постоянно тревожусь и не могу расслабиться»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p1">
                 Можно разобраться, что стоит за напряжением, и найти опоры,
                 которые подходят именно вам.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Отношения</h3>
-                <em>«Мне тяжело быть близким и оставаться собой»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b2"
+                  aria-expanded="false"
+                  aria-controls="acc-p2"
+                >
+                  <span class="t">Отношения</span>
+                  <em>«Мне тяжело быть близким и оставаться собой»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p2">
                 Исследуем, как вы строите близость, чего хотите и чего боитесь в
                 отношениях.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Выгорание</h3>
-                <em>«Мне кажется, что я живу на автомате»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b3"
+                  aria-expanded="false"
+                  aria-controls="acc-p3"
+                >
+                  <span class="t">Выгорание</span>
+                  <em>«Мне кажется, что я живу на автомате»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p3">
                 Смотрим на усталость, ресурсы и на то, что для вас действительно
                 важно.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Самооценка</h3>
-                <em>«Я постоянно сомневаюсь в себе»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b4"
+                  aria-expanded="false"
+                  aria-controls="acc-p4"
+                >
+                  <span class="t">Самооценка</span>
+                  <em>«Я постоянно сомневаюсь в себе»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p4">
                 Присматриваемся к внутреннему голосу и учимся опираться на
                 собственный взгляд.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Вина и стыд</h3>
-                <em>«Я чувствую вину, даже когда ничего не сделал(а)»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b5"
+                  aria-expanded="false"
+                  aria-controls="acc-p5"
+                >
+                  <span class="t">Вина и стыд</span>
+                  <em>«Я чувствую вину, даже когда ничего не сделал(а)»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p5">
                 Бережно исследуем эти чувства и то, откуда они приходят.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Сепарация</h3>
-                <em>«Мне сложно принимать решения без одобрения родителей»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b6"
+                  aria-expanded="false"
+                  aria-controls="acc-p6"
+                >
+                  <span class="t">Сепарация</span>
+                  <em>«Мне сложно принимать решения без одобрения родителей»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p6">
                 Ищем свою позицию во взрослых отношениях с семьёй.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Личные границы</h3>
-                <em>«Мне трудно говорить «нет»»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b7"
+                  aria-expanded="false"
+                  aria-controls="acc-p7"
+                >
+                  <span class="t">Личные границы</span>
+                  <em>«Мне трудно говорить «нет»»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p7">
                 Понимаем, где ваши границы и что мешает их обозначать.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Перфекционизм</h3>
-                <em>«Если не идеально — лучше вообще не начинать»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b8"
+                  aria-expanded="false"
+                  aria-controls="acc-p8"
+                >
+                  <span class="t">Перфекционизм</span>
+                  <em>«Если не идеально — лучше вообще не начинать»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p8">
                 Смотрим, какие требования к себе вы держите и чему они служат.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Внутренние опоры</h3>
-                <em>«Я не понимаю, на что мне опираться»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b9"
+                  aria-expanded="false"
+                  aria-controls="acc-p9"
+                >
+                  <span class="t">Внутренние опоры</span>
+                  <em>«Я не понимаю, на что мне опираться»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p9">
                 Вместе ищем ваши ценности, ресурсы и точки опоры.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Эмоциональный интеллект</h3>
-                <em>«Я не всегда понимаю, что чувствую»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b10"
+                  aria-expanded="false"
+                  aria-controls="acc-p10"
+                >
+                  <span class="t">Эмоциональный интеллект</span>
+                  <em>«Я не всегда понимаю, что чувствую»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p10">
                 Учимся замечать, называть и проживать свои чувства.
               </p>
             </div>
             <div class="acc-item">
-              <button aria-expanded="false">
-                <h3>Принятие себя</h3>
-                <em>«Я хочу лучше понять, чего на самом деле хочу»</em
-                ><span class="plus" aria-hidden="true">+</span>
-              </button>
-              <p class="more">
+              <h3>
+                <button
+                  id="acc-b11"
+                  aria-expanded="false"
+                  aria-controls="acc-p11"
+                >
+                  <span class="t">Принятие себя</span>
+                  <em>«Я хочу лучше понять, чего на самом деле хочу»</em>
+                  <span class="plus" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <p class="more" id="acc-p11">
                 Исследуем желания, ценности и собственные ответы.
               </p>
             </div>
@@ -370,9 +541,12 @@
               <button
                 class="doc"
                 data-cap="Бакалавр, 37.03.01 «Психология», СКСИ, Ставрополь"
+                data-full="img/diploma-1-bachelor.webp"
               >
                 <img
-                  src="img/diploma-1-bachelor.jpg"
+                  src="img/thumbs/diploma-1-bachelor.webp"
+                  width="640"
+                  height="450"
                   alt="Диплом бакалавра"
                   loading="lazy"
                 /><small>Образование · 13.07.2026</small
@@ -383,9 +557,12 @@
               <button
                 class="doc"
                 data-cap="Психологическое консультирование и психодиагностика, 620 ч, АНО «НИИДПО»"
+                data-full="img/diploma-2-retraining.webp"
               >
                 <img
-                  src="img/diploma-2-retraining.jpg"
+                  src="img/thumbs/diploma-2-retraining.webp"
+                  width="640"
+                  height="448"
                   alt="Диплом о профессиональной переподготовке"
                   loading="lazy"
                 /><small>Переподготовка · 16.12.2024</small
@@ -399,9 +576,12 @@
               <button
                 class="doc"
                 data-cap="Экзистенциальная психология: техники подхода, 108 ч, «Инфоурок»"
+                data-full="img/diploma-3-existential.webp"
               >
                 <img
-                  src="img/diploma-3-existential.jpg"
+                  src="img/thumbs/diploma-3-existential.webp"
+                  width="640"
+                  height="450"
                   alt="Удостоверение о повышении квалификации"
                   loading="lazy"
                 /><small>Повышение квалификации · 2025</small
@@ -415,9 +595,12 @@
               <button
                 class="doc"
                 data-cap="Обучающая личная терапия, 50 ак. ч, «Тэлентси»"
+                data-full="img/diploma-4-therapy.webp"
               >
                 <img
-                  src="img/diploma-4-therapy.jpg"
+                  src="img/thumbs/diploma-4-therapy.webp"
+                  width="640"
+                  height="905"
                   alt="Свидетельство об обучении"
                   loading="lazy"
                 /><small>Доп. обучение · 12.05.2026</small
@@ -457,17 +640,23 @@
           <form id="form" class="rv" novalidate>
             <p class="eyebrow">Записаться на консультацию</p>
             <label for="n">Имя *</label
-            ><input id="n" type="text" autocomplete="name" required />
-            <p class="err" data-for="n"></p>
+            ><input
+              id="n"
+              type="text"
+              autocomplete="name"
+              required
+              aria-describedby="e-n"
+            />
+            <p class="err" id="e-n" data-for="n" aria-live="polite"></p>
             <label for="c">Способ связи * (Telegram, email или телефон)</label
-            ><input id="c" type="text" required />
-            <p class="err" data-for="c"></p>
+            ><input id="c" type="text" required aria-describedby="e-c" />
+            <p class="err" id="e-c" data-for="c" aria-live="polite"></p>
             <label for="m"
               >Расскажите немного о том, с чем вы хотели бы обратиться *</label
-            ><textarea id="m" required></textarea>
-            <p class="err" data-for="m"></p>
+            ><textarea id="m" required aria-describedby="e-m"></textarea>
+            <p class="err" id="e-m" data-for="m" aria-live="polite"></p>
             <div class="consent">
-              <input id="k" type="checkbox" required /><label
+              <input id="k" type="checkbox" required aria-describedby="e-k" /><label
                 for="k"
                 style="margin: 0"
                 >Я согласен(на) на обработку персональных данных в соответствии
@@ -477,7 +666,7 @@
                 ></label
               >
             </div>
-            <p class="err" data-for="k"></p>
+            <p class="err" id="e-k" data-for="k" aria-live="polite"></p>
             <button class="btn fill" type="submit">Отправить</button>
             <p class="ok" id="ok" role="status">
               Спасибо за обращение. Дарья свяжется с вами, и вместе вы

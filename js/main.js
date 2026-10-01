@@ -4,24 +4,30 @@
   // меню
   const nav = $("nav"),
     bg = $(".burger");
+  const closeNav = () => {
+    nav.classList.remove("open");
+    bg.setAttribute("aria-expanded", false);
+  };
   bg.onclick = () => {
     const o = nav.classList.toggle("open");
     bg.setAttribute("aria-expanded", o);
   };
-  $$("nav a").forEach(
-    (a) =>
-      (a.onclick = () => {
-        nav.classList.remove("open");
-        bg.setAttribute("aria-expanded", false);
-      }),
-  );
+  $$("nav a").forEach((a) => (a.onclick = closeNav));
+  document.addEventListener("click", (e) => {
+    if (
+      nav.classList.contains("open") &&
+      !nav.contains(e.target) &&
+      !bg.contains(e.target)
+    )
+      closeNav();
+  });
   // аккордеон
   $$(".acc button").forEach(
     (b) =>
       (b.onclick = () => {
         const o = b.getAttribute("aria-expanded") === "true";
         b.setAttribute("aria-expanded", !o);
-        b.nextElementSibling.classList.toggle("open", !o);
+        $("#" + b.getAttribute("aria-controls")).classList.toggle("open", !o);
       }),
   );
   // появление при скролле
@@ -43,31 +49,52 @@
   const lb = $("#lb"),
     li = $("#lbi"),
     lc = $("#lbc"),
-    docs = $$(".doc");
+    inner = $(".lb-in", lb),
+    docs = $$(".doc"),
+    page = $$("header, main, footer");
   let cur = 0,
     sx = 0;
+  const unzoom = () => {
+    li.classList.remove("zoom");
+    li.style.width = "";
+  };
   const show = (i) => {
     cur = (i + docs.length) % docs.length;
-    const d = docs[cur];
-    li.src = $("img", d).src;
-    li.alt = $("img", d).alt;
+    const d = docs[cur],
+      t = $("img", d);
+    unzoom();
+    inner.scrollTo(0, 0);
+    li.src = d.dataset.full || t.src;
+    li.alt = t.alt;
     lc.textContent = d.dataset.cap;
-    li.classList.remove("zoom");
   };
   const open = (i) => {
       show(i);
       lb.classList.add("open");
+      document.documentElement.classList.add("lb-open");
+      page.forEach((el) => (el.inert = true));
       $(".x", lb).focus();
     },
     close = () => {
       lb.classList.remove("open");
+      document.documentElement.classList.remove("lb-open");
+      page.forEach((el) => (el.inert = false));
+      unzoom();
       docs[cur].focus();
     };
   docs.forEach((d, i) => (d.onclick = () => open(i)));
   $(".x", lb).onclick = close;
   $(".p", lb).onclick = () => show(cur - 1);
   $(".n", lb).onclick = () => show(cur + 1);
-  li.onclick = () => li.classList.toggle("zoom");
+  li.onclick = () => {
+    if (li.classList.contains("zoom")) return unzoom();
+    // увеличиваем реальный размер, чтобы картинку можно было прокручивать
+    const w = li.getBoundingClientRect().width;
+    li.classList.add("zoom");
+    li.style.width = w * 1.9 + "px";
+    inner.scrollLeft = (inner.scrollWidth - inner.clientWidth) / 2;
+    inner.scrollTop = (inner.scrollHeight - inner.clientHeight) / 2;
+  };
   lb.onclick = (e) => {
     if (e.target === lb) close();
   };
@@ -84,12 +111,28 @@
     if (e.key === "Escape") close();
     if (e.key === "ArrowLeft") show(cur - 1);
     if (e.key === "ArrowRight") show(cur + 1);
+    if (e.key === "Tab") {
+      // фокус остаётся внутри окна просмотра
+      const f = $$("button", lb),
+        a = document.activeElement;
+      if (e.shiftKey && a === f[0]) (e.preventDefault(), f[f.length - 1].focus());
+      else if (!e.shiftKey && a === f[f.length - 1])
+        (e.preventDefault(), f[0].focus());
+    }
+  });
+  // Esc закрывает мобильное меню
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && nav.classList.contains("open")) {
+      closeNav();
+      bg.focus();
+    }
   });
   // форма
   const f = $("#form");
   f.onsubmit = (e) => {
     e.preventDefault();
-    let ok = true;
+    let ok = true,
+      firstBad = null;
     const rules = {
       n: "Введите имя",
       c: "Укажите, как с вами связаться",
@@ -100,9 +143,13 @@
       const el = $("#" + id),
         bad = el.type === "checkbox" ? !el.checked : !el.value.trim();
       $(`[data-for=${id}]`).textContent = bad ? rules[id] : "";
-      if (bad) ok = false;
+      el.setAttribute("aria-invalid", bad);
+      if (bad) {
+        ok = false;
+        firstBad = firstBad || el;
+      }
     }
-    if (!ok) return;
+    if (!ok) return firstBad.focus();
     // Без сервера: открываем почтовое приложение с готовым письмом. Тема нейтральная.
     const body = `Имя: ${$("#n").value}\nСпособ связи: ${$("#c").value}\n\n${$("#m").value}`;
     location.href = `mailto:pogoldinad@mail.ru?subject=${encodeURIComponent("Обращение с сайта")}&body=${encodeURIComponent(body)}`;
