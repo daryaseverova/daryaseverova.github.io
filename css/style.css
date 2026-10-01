@@ -1237,24 +1237,6 @@ footer .wrap {
     text-align: right;
   }
 
-  .price::after {
-    grid-area: meta;
-    display: block;
-    font-size: 13px;
-    line-height: 1.35;
-    color: inherit;
-    opacity: .8;
-  }
-
-  .price:nth-child(1)::after,
-  .price:nth-child(2)::after {
-    content: "70 минут · онлайн";
-  }
-
-  .price:nth-child(3)::after {
-    content: "70 минут";
-  }
-
   .pnote {
     font-size: 13px;
     color: var(--mute);
