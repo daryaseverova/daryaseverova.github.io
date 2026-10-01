@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://dariaseverova.github.io/sitemap.xml
+Sitemap: https://daryaseverova.github.io/sitemap.xml
