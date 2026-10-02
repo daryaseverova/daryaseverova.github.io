@@ -1,7 +1,6 @@
 (() => {
   const $ = (s, r = document) => r.querySelector(s),
     $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  // меню
   const nav = $("nav"),
     bg = $(".burger");
   const closeNav = () => {
@@ -21,7 +20,6 @@
     )
       closeNav();
   });
-  // аккордеон
   $$(".acc button").forEach(
     (b) =>
       (b.onclick = () => {
@@ -30,7 +28,6 @@
         $("#" + b.getAttribute("aria-controls")).classList.toggle("open", !o);
       }),
   );
-  // появление при скролле
   const io =
     "IntersectionObserver" in window
       ? new IntersectionObserver(
@@ -45,7 +42,6 @@
         )
       : null;
   $$(".rv").forEach((el) => (io ? io.observe(el) : el.classList.add("in")));
-  // lightbox
   const lb = $("#lb"),
     li = $("#lbi"),
     lc = $("#lbc"),
@@ -88,7 +84,6 @@
   $(".n", lb).onclick = () => show(cur + 1);
   li.onclick = () => {
     if (li.classList.contains("zoom")) return unzoom();
-    // увеличиваем реальный размер, чтобы картинку можно было прокручивать
     const w = li.getBoundingClientRect().width;
     li.classList.add("zoom");
     li.style.width = w * 1.9 + "px";
@@ -112,7 +107,6 @@
     if (e.key === "ArrowLeft") show(cur - 1);
     if (e.key === "ArrowRight") show(cur + 1);
     if (e.key === "Tab") {
-      // фокус остаётся внутри окна просмотра
       const f = $$("button", lb),
         a = document.activeElement;
       if (e.shiftKey && a === f[0]) (e.preventDefault(), f[f.length - 1].focus());
@@ -120,16 +114,15 @@
         (e.preventDefault(), f[0].focus());
     }
   });
-  // Esc закрывает мобильное меню
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && nav.classList.contains("open")) {
       closeNav();
       bg.focus();
     }
   });
-  // форма
+  const FORM_URL = "https://zayavka.dariapogoldina2.workers.dev";
   const f = $("#form");
-  f.onsubmit = (e) => {
+  f.onsubmit = async (e) => {
     e.preventDefault();
     let ok = true,
       firstBad = null;
@@ -150,13 +143,38 @@
       }
     }
     if (!ok) return firstBad.focus();
-    // Без сервера: открываем почтовое приложение с готовым письмом. Тема нейтральная.
-    const body = `Имя: ${$("#n").value}\nСпособ связи: ${$("#c").value}\n\n${$("#m").value}`;
-    location.href = `mailto:pogoldinad@mail.ru?subject=${encodeURIComponent("Обращение с сайта")}&body=${encodeURIComponent(body)}`;
-    $("#ok").style.display = "block";
-    f.reset();
+
+    const btn = $("#send"),
+      fail = $("#fail"),
+      label = btn.textContent;
+    fail.textContent = "";
+    $("#ok").style.display = "none";
+    btn.disabled = true;
+    btn.textContent = "Отправляю…";
+    try {
+      const r = await fetch(FORM_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: $("#n").value.trim(),
+          contact: $("#c").value.trim(),
+          message: $("#m").value.trim(),
+          consent: $("#k").checked,
+          website: $("#w").value,
+        }),
+      });
+      const res = await r.json();
+      if (!r.ok || !res.ok) throw new Error("send");
+      $("#ok").style.display = "block";
+      f.reset();
+    } catch (err) {
+      fail.textContent =
+        "Не получилось отправить. Попробуйте ещё раз или напишите мне в Telegram: @dashkaapo";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = label;
+    }
   };
-  // переходы по меню
   const clean = () =>
     history.replaceState(null, "", location.pathname + location.search);
   $$('a[href^="#"]').forEach((a) =>

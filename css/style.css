@@ -601,6 +601,14 @@ textarea {
   accent-color: var(--terra);
 }
 
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .ok {
   display: none;
   padding: 20px;

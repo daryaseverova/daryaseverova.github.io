@@ -638,6 +638,10 @@
             </div>
           </div>
           <form id="form" class="rv" novalidate>
+            <div class="hp" aria-hidden="true">
+              <label for="w">Не заполняйте это поле</label>
+              <input id="w" type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
             <p class="eyebrow">Записаться на консультацию</p>
             <label for="n">Имя *</label
             ><input
@@ -659,15 +663,16 @@
               <input id="k" type="checkbox" required aria-describedby="e-k" /><label
                 for="k"
                 style="margin: 0"
-                >Я согласен(на) на обработку персональных данных в соответствии
-                с
+                >Я согласен(на) на обработку персональных данных, в том числе их
+                передачу через Telegram, в соответствии с
                 <a href="/privacy"
                   >Политикой обработки персональных данных</a
                 ></label
               >
             </div>
             <p class="err" id="e-k" data-for="k" aria-live="polite"></p>
-            <button class="btn fill" type="submit">Отправить</button>
+            <button class="btn fill" type="submit" id="send">Отправить</button>
+            <p class="err" id="fail" role="alert" style="margin: 16px 0 0"></p>
             <p class="ok" id="ok" role="status">
               Спасибо за обращение. Дарья свяжется с вами, и вместе вы
               определите удобный формат и время встречи.
